@@ -59,9 +59,7 @@ def jugar(pantalla):
             # Mostrar una imagen centrada en la pantalla (más grande para un mensaje especial)
             try:
                 imagen_centrada = pygame.transform.scale(pygame.image.load("imagenes/you_win.png").convert_alpha(), (350, 350))
-                x_centrada = ANCHO // 2 - imagen_centrada.get_width() // 2
-                y_centrada = ALTO // 2 - imagen_centrada.get_height() // 2
-                pantalla.blit(imagen_centrada, (x_centrada, y_centrada))
+                pantalla.blit(imagen_centrada, (225, 240))
                 pygame.display.flip()#actualizamos pantalla
             except pygame.error: print("No se pudo cargar imagen.")
 
@@ -78,9 +76,7 @@ def jugar(pantalla):
                 
                 # carga y muestra imagen de perdiste 
                 you_lost_img = pygame.transform.scale(pygame.image.load("imagenes/you_lost.png").convert_alpha(), (350, 120)) # Mostramos imagen de perdiste debajo y por encima de screamer img
-                x_lost = ANCHO // 2 - you_lost_img.get_width() // 2
-                y_lost = ALTO - you_lost_img.get_height() - 30
-                pantalla.blit(you_lost_img, (x_lost, y_lost))
+                pantalla.blit(you_lost_img, (225, 240))
                 pygame.display.flip()# actualiza la pantalla 
                 
             except pygame.error:
@@ -164,7 +160,7 @@ def logo(pantalla):
         # Cargar la imagen del logo
         imagen_logo = pygame.transform.scale(pygame.image.load("imagenes/marca.png").convert_alpha(), (130, 130)) # Escalar a tamaño más grande
        
-        pantalla.blit(imagen_logo, (20, 20)) # dibuja la imagen en pantalla 
+        pantalla.blit(imagen_logo, (20, 20)) # presenta la imagen en pantalla 
     
     except pygame.error:
         print("No se pudo cargar imagen")
@@ -176,7 +172,7 @@ def dibujar_juego(pantalla, palabra, letras_utilizadas, errores):
          #Intenta cargar la imagen 
         fondo = pygame.transform.scale(pygame.image.load("imagenes/FONDO.JPG").convert(), (ANCHO, ALTO)) #Escala al tamaño de la ventana 
         
-        pantalla.blit(fondo, (0, 0))# Dibuja fondo 
+        pantalla.blit(fondo, (0, 0))# presenta imagen 
         
     except pygame.error:
         pantalla.fill((255, 255, 255))  # Blanco si no se encuentra la imagen
@@ -199,7 +195,7 @@ def dibujar_juego(pantalla, palabra, letras_utilizadas, errores):
         else:
             texto += "_ " # muestra guion bajon
 
-    render = fuente.render(texto.strip(), True, NEGRO)
+    render = fuente.render(texto, True, NEGRO)
     pantalla.blit(render, (300,520))
 
     # Mostrar letras incorrectas
