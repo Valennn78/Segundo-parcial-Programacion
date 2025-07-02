@@ -200,7 +200,7 @@ def dibujar_juego(pantalla, palabra, letras_utilizadas, errores):
             texto += "_ " # muestra guion bajon
 
     render = fuente.render(texto.strip(), True, NEGRO)
-    pantalla.blit(render, (ANCHO // 2 - render.get_width() // 2, 520))
+    pantalla.blit(render, (300,520))
 
     # Mostrar letras incorrectas
     letras_incorrectas = []
